@@ -10,7 +10,7 @@ def video_convert(file_name, convert_type):
 
 def img_convert(file_name, convert_type):
     try:
-        temp = file_name
+        temp =  file_name
         if temp is None or len(temp) != 2:
             return OSError
 
