@@ -1,25 +1,7 @@
-import fileTypeReader
 from PIL import Image
-import ffmpeg
+'''
+def main():
 
-def read_file_name():
-    file_name = fileTypeReader.file_name_parser()
-    return file_name
-
-def video_convert(file_name, convert_type):
-    try:
-        temp = file_name
-        if temp is None or len(temp) != 2:
-            return OSError
-        input_file = temp[0] + "." + temp[1]
-        output_file = temp[0] + "." + convert_type
-        
-    except OSError as ose:
-        print("Invalid file\n", ose.errno)
-    
-    pass
-
-def img_convert(file_name, convert_type):
     try:
         temp =  file_name
         if temp is None or len(temp) != 2:
@@ -43,10 +25,4 @@ def img_convert(file_name, convert_type):
     except OSError as ose:
         print("Invalid file\n", ose.errno)
         return ose
-
-def main():
-    name_and_type = read_file_name()
-    new_img = img_convert(name_and_type, "png")
-
-if __name__ == '__main__':
-    main()
+'''
