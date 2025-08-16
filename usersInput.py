@@ -6,7 +6,7 @@ def read_file_name():
     file_name = fileTypeReader.file_name_parser()
     return file_name
 
-def video_convert(file_name, convert_type):
+def video_convert_file_type(file_name, convert_type):
     try:
         temp = file_name
         if temp is None or len(temp) != 2:
@@ -14,6 +14,18 @@ def video_convert(file_name, convert_type):
         input_file = temp[0] + "." + temp[1]
         output_file = temp[0] + "." + convert_type
 
+        if input_file is output_file:
+            print("Same file type")
+        else:
+            # Conversion
+            print("Converting...")
+            ffmpeg.input(input_file).output(output_file).run()
+            print("Converted ", input_file, " to ", output_file)
+            return True
+
+        print("Failed to convert ", input_file, " to ", output_file)
+        return None
+        
     except OSError as ose:
         print("Invalid file\n", ose.errno)
         return ose
@@ -34,6 +46,7 @@ def img_convert_file_type(file_name, convert_type):
             print("Same file type")
         else:
             # Conversion
+            print("Converting...")
             with old_image as new_image:
                 new_image.save(output_file)
             print("Converted ", input_file, " to ", output_file)
@@ -48,7 +61,8 @@ def img_convert_file_type(file_name, convert_type):
 
 def main():
     name_and_type = read_file_name()
-    new_img = img_convert_file_type(name_and_type, "png")
+    #img_convert_file_type(name_and_type, "png")
+    video_convert_file_type(name_and_type, "wmv")
     print("Done!")
 
 if __name__ == '__main__':

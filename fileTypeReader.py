@@ -2,7 +2,7 @@
 def file_name_parser():
     check = False
     # placeholder for user input from a different function
-    name_type = input()
+    name_type = input("Enter file location: ")
     name = ""
     f_type = ""
     file_name = []
