@@ -1,5 +1,6 @@
 import os
 import fileTypeReader
+from conversions import imgConversion
 from PIL import Image
 import ffmpeg
 
@@ -30,7 +31,7 @@ def video_convert_file_type(file_name, convert_type):
     except OSError as ose:
         print("Invalid file\n", ose.errno)
         return ose
-
+'''
 def img_convert_file_type(file_name, convert_type):
     try:
         temp =  file_name
@@ -59,7 +60,7 @@ def img_convert_file_type(file_name, convert_type):
     except OSError as ose:
         print("Invalid file\n", ose.errno)
         return ose
-
+'''
 # Coming back to fix this 
 def img_optimization(file_name, new_size):
     try:
@@ -89,8 +90,9 @@ def img_optimization(file_name, new_size):
 
 def main():
     name_and_type = read_file_name()
-    img_convert_file_type(name_and_type, "png")
-    img_optimization("./test_media/jp.png", .001)
+    imgConversion.convertImage(name_and_type, "png")
+    #img_convert_file_type(name_and_type, "png")
+    #img_optimization("./test_media/jp.png", .001)
     #video_convert_file_type(name_and_type, "wmv")
     print("Done!")
 

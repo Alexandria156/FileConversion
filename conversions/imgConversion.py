@@ -5,8 +5,8 @@ def convertImage(file_name, convert_type):
         temp_name = file_name
 
         if temp_name is None or len(temp_name) !=2:
-            pass
-        input_file = temp_name[0] + "." + convert_type
+            return OSError
+        input_file = temp_name[0] + "." + temp_name[1]
         output_file = temp_name[0] = "." + convert_type
         old_img = Image.open(input_file)
 
@@ -22,7 +22,7 @@ def convertImage(file_name, convert_type):
         print("Failed to convert ", input_file)
         return 0
     except OSError as ose:
-        print("Invalid file, ", ose.errno, "\n")
+        print("Invalid file,", ose.errno, "\n")
         return ose
 
 def main():
