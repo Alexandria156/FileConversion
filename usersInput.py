@@ -73,13 +73,14 @@ def img_optimization(file_name, new_size):
         #error thrown while trying to get file size
         file_size = os.path.getsize(file_name)
 
-        print("File size: ", file_size/100000, "mb\n")
+        print("File size: ", file_size/1000000, "mb\n")
 
-        reduction = file_size - (new_size * 100000)
+        reduction = (file_size - (new_size * 1000000))
+
         # truncate using difference of file size and asked size
         img_file.truncate(reduction)
 
-        print("File is now ", new_size* 100000, "mb\n")
+        print("File is now ", new_size* 1000000, "mb\n")
         return img_file
     
     except OSError as ose:
@@ -95,7 +96,7 @@ def main():
     #img_convert_file_type(name_and_type, "png")
     #Taking megabytes
     print("Image optimization")
-    img_optimization("test_media\\jp.png", 0.001)
+    img_optimization("test_media\\jp.png", 0.000001)
     #video_convert_file_type(name_and_type, "wmv")
     print("Done!")
 
