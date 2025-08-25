@@ -27,8 +27,8 @@ def convertImage(file_name, convert_type):
     except OSError as ose:
         print("Invalid file,", ose.errno, "\n")
         return ose
-    '''
+
     except ValueError as ve:
         print("Failed to convert file,", ve.with_traceback,"\n")
         return 0
-    '''
+    

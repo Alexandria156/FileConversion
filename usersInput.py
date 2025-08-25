@@ -66,7 +66,7 @@ def img_optimization(file_name, new_size):
     try:
         temp_name = file_name
         # Check to see if the file name is valid
-        if temp_name is None or len(temp_name) != 2:
+        if temp_name is None:
             return OSError
         # opening the file and reading out its size
         img_file = open(file_name)
@@ -89,10 +89,12 @@ def img_optimization(file_name, new_size):
         return None
 
 def main():
-    name_and_type = read_file_name()
-    imgConversion.convertImage(name_and_type, "png")
+    #name_and_type = read_file_name()
+    #imgConversion.convertImage(name_and_type, "png")
     #img_convert_file_type(name_and_type, "png")
-    #img_optimization("./test_media/jp.png", .001)
+    #Taking megabytes
+    print("Image optimization")
+    img_optimization("test_media\\jp.png", 0.001)
     #video_convert_file_type(name_and_type, "wmv")
     print("Done!")
 
