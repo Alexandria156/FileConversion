@@ -6,7 +6,7 @@ import ffmpeg
 def read_file_name():
     file_name = fileTypeReader.file_name_parser()
     return file_name
-
+# Moving the conversion functions into their own methods
 def video_convert_file_type(file_name, convert_type):
     try:
         temp = file_name
@@ -60,6 +60,7 @@ def img_convert_file_type(file_name, convert_type):
         print("Invalid file\n", ose.errno)
         return ose
 
+# Coming back to fix this 
 def img_optimization(file_name, new_size):
     try:
         temp_name = file_name
