@@ -70,7 +70,8 @@ def img_optimization(file_name, new_size):
             return OSError
         # opening the file and reading out its size
         img_file = open(file_name)
-        file_size = os.path.getsize(img_file)
+        #error thrown while trying to get file size
+        file_size = os.path.getsize(file_name)
 
         print("File size: ", file_size/100000, "mb\n")
 
