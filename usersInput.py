@@ -1,3 +1,4 @@
+import os
 import fileTypeReader
 from PIL import Image
 import ffmpeg
@@ -59,12 +60,25 @@ def img_convert_file_type(file_name, convert_type):
         print("Invalid file\n", ose.errno)
         return ose
 
-def img_optimization(file_name):
+def img_optimization(file_name, new_size):
     try:
-        pass
+        temp_name = file_name
+        # Check to see if the file name is valid
+        if temp_name is None or len(temp_name) != 2:
+            return OSError
+        img_file = open(file_name)
+        file_size = os.path.getsize(img_file)
+        print("File size: ", file_size/100000, "mb\n")
+        reduction = file_size - (new_size * 100000)
+        img_file.truncate(reduction)
+        print("File is now ", new_size* 100000, "mb\n")
+        return img_file
     except OSError as ose:
         print("Invalid file\n", ose.errno)
         return ose
+    except:
+        print("Failed to decrease file size.")
+        return None
 
 def main():
     name_and_type = read_file_name()
