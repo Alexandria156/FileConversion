@@ -59,6 +59,13 @@ def img_convert_file_type(file_name, convert_type):
         print("Invalid file\n", ose.errno)
         return ose
 
+def img_optimization(file_name):
+    try:
+        pass
+    except OSError as ose:
+        print("Invalid file\n", ose.errno)
+        return ose
+
 def main():
     name_and_type = read_file_name()
     #img_convert_file_type(name_and_type, "png")
