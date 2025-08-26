@@ -77,6 +77,17 @@ def img_optimization(file_name):
         print("Failed to decrease file size.")
         return None
 
+def video_optimization(file_name):
+    try:
+        temp_name = file_name
+        # Check to see if the file name is valid
+        if temp_name is None:
+            return OSError
+        
+    except OSError as ose:
+        print("Invalid file\n", ose.errno)
+        return ose
+
 def main():
     #name_and_type = read_file_name()
     #imgConversion.convertImage(name_and_type, "png")
