@@ -62,27 +62,14 @@ def img_convert_file_type(file_name, convert_type):
         return ose
 '''
 # Coming back to fix this 
-def img_optimization(file_name, new_size):
+def img_optimization(file_name):
     try:
         temp_name = file_name
         # Check to see if the file name is valid
         if temp_name is None:
             return OSError
-        # opening the file and reading out its size
-        img_file = open(file_name)
-        #error thrown while trying to get file size
-        file_size = os.path.getsize(file_name)
-
-        print("File size: ", file_size/1000000, "mb\n")
-
-        reduction = (file_size - (new_size * 1000000))
-
-        # truncate using difference of file size and asked size
-        img_file.truncate(reduction)
-
-        print("File is now ", new_size* 1000000, "mb\n")
-        return img_file
-    
+        img = Image.open(temp_name)
+        img.save(file_name, optimize = True)
     except OSError as ose:
         print("Invalid file\n", ose.errno)
         return ose
@@ -94,9 +81,9 @@ def main():
     #name_and_type = read_file_name()
     #imgConversion.convertImage(name_and_type, "png")
     #img_convert_file_type(name_and_type, "png")
-    #Taking megabytes
+    #Taking bytes
     print("Image optimization")
-    img_optimization("test_media\\jp.png", 0.000001)
+    img_optimization("test_media\\jp.png")
     #video_convert_file_type(name_and_type, "wmv")
     print("Done!")
 
