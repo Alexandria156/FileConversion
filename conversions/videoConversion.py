@@ -18,3 +18,7 @@ def videoConvertType(file_name, convert_type):
     except OSError as ose:
         print("Invalid file\n", ose.errno)
         return ose
+    
+    except ValueError as ve:
+        print("Failed to convert file,", ve.with_traceback,"\n")
+        return ve

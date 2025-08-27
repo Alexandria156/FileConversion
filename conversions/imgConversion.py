@@ -30,5 +30,5 @@ def convertImage(file_name, convert_type):
 
     except ValueError as ve:
         print("Failed to convert file,", ve.with_traceback,"\n")
-        return 0
+        return ve
     
