@@ -64,16 +64,20 @@ def main():
             case "file conversion":
                 to_Type = input("Please enter what file type you wish to convert to: ")
                 name_and_type = read_file_name()
-                imgConversion.convertImage(name_and_type, "png")
+                imgConversion.convertImage(name_and_type, to_Type)
                 print("Done!")
-            
             case "optimize":  
                 file_name = input("Enter file location: ")
                 imgOptimization.img_optimization(file_name)
                 print("Done!")
+            case "color correct":
+                file_name = input("Enter file location: ")
+                
             case "quit":
                 userActive = False
                 print("Ending program, goodbye!")
+            case default:
+                print("Please choose an operation.")
 
 if __name__ == '__main__':
     main()
