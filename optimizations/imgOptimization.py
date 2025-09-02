@@ -7,6 +7,7 @@ def img_optimization(file_name):
         if temp_name is None:
             return OSError
         img = Image.open(temp_name)
+        print("Optimizing your file")
         img.save(file_name, optimize = True)
     except OSError as ose:
         print("Invalid file\n", ose.errno)

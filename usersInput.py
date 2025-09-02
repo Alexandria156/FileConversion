@@ -1,8 +1,8 @@
 import os
 import fileTypeReader
 from conversions import imgConversion
+from optimizations import imgOptimization
 from PIL import Image
-import ffmpeg
 
 def read_file_name():
     file_name = fileTypeReader.file_name_parser()
@@ -39,7 +39,7 @@ def img_convert_file_type(file_name, convert_type):
         print("Invalid file\n", ose.errno)
         return ose
 '''
-
+'''
 def img_optimization(file_name):
     try:
         temp_name = file_name
@@ -54,16 +54,26 @@ def img_optimization(file_name):
     except:
         print("Failed to decrease file size.")
         return None
-
+'''
 
 def main():
-    #name_and_type = read_file_name()
-    #imgConversion.convertImage(name_and_type, "png")
-    #img_convert_file_type(name_and_type, "png")
-    #Taking bytes
-    print("Image optimization")
-    img_optimization("test_media\\jp.png")
-    print("Done!")
+    userActive = True
+    while userActive == True:
+        operation = input("> ")
+        match operation:
+            case "file conversion":
+                to_Type = input("Please enter what file type you wish to convert to: ")
+                name_and_type = read_file_name()
+                imgConversion.convertImage(name_and_type, "png")
+                print("Done!")
+            
+            case "optimize":  
+                file_name = input("Enter file location: ")
+                imgOptimization.img_optimization(file_name)
+                print("Done!")
+            case "quit":
+                userActive = False
+                print("Ending program, goodbye!")
 
 if __name__ == '__main__':
     main()
