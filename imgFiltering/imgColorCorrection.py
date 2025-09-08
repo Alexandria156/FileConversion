@@ -7,9 +7,10 @@ def color_shift(file_name):
         # Check to see if the file name is valid
         if temp_name is None:
             return OSError
+        new_img = None
     except OSError as ose:
         print("Invalid file\n", ose.errno)
         return ose
     except:
-        print("Failed to decrease file size.")
+        print("Failed to filter image")
         return None
